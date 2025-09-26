@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Exploricaa — Explore India</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
+  <!-- NAV -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand">
+        <img src="assets/favicon.png" alt="Trip Planner logo" class="logo">
+        <span class="brand-title">Exploricaa</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#destinations">Destinations</a>
+        <a href="#transport">Transport</a>
+        <a href="#hotels">Hotels</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+  <!-- HERO (parallax) -->
+  <section id="hero" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <h1 class="hero-title">Plan • Explore • Book</h1>
+      <p class="hero-sub">Handpicked Indian destinations, hotels, and travel options — elegantly presented so users can plan fast and travel smart.</p>
+      <a href="#destinations" class="btn primary">Start Exploring</a>
+    </div>
+  </section>
+  <!-- DESTINATIONS -->
+  <section id="destinations" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Popular Destinations</h2>
+      <p class="section-sub reveal">Click a destination to get a quick overview & begin planning — hotels, maps and travel options are one click away.</p>
+      <div id="cardsGrid" class="grid mt-24"></div>
+    </div>
+  </section>
+  <!-- TRANSPORT -->
+  <section id="transport" class="section soft">
+    <div class="container">
+      <h2 class="section-title reveal">Transportation</h2>
+      <p class="section-sub reveal">Choose how you want to travel — we link to trusted booking portals so you can continue planning seamlessly.</p>
+      <div class="grid transport-grid mt-24">
+        <article class="card transport-card reveal" data-link="https://www.redbus.in/">
+          <div class="card-media" style="background-image: url('images/bus.png')"></div>
+          <div class="card-body">
+            <h3>Bus</h3>
+            <p>Inter-city buses & private coaches — fast booking on RedBus.</p>
+            <a class="btn small" href="https://www.redbus.in/" target="_blank" rel="noopener">Book Bus</a>
+          </div>
+        </article>
+        <article class="card transport-card reveal" data-link="https://www.irctc.co.in/">
+          <div class="card-media" style="background-image: url('images/train.png')"></div>
+          <div class="card-body">
+            <h3>Train</h3>
+            <p>Long-distance trains across India — official IRCTC portal.</p>
+            <a class="btn small" href="https://www.irctc.co.in/" target="_blank" rel="noopener">Book Train</a>
+          </div>
+        </article>
+        <article class="card transport-card reveal" data-link="https://www.makemytrip.com/flights/">
+          <div class="card-media" style="background-image: url('images/flight.png')"></div>
+          <div class="card-body">
+            <h3>Flight</h3>
+            <p>Search and compare flights for the best fares & timings.</p>
+            <a class="btn small" href="https://www.makemytrip.com/flights/" target="_blank" rel="noopener">Search Flights</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- HOTELS -->
+  <section id="hotels" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Hotels</h2>
+      <p class="section-sub reveal">Choose a city below to view hotels on MakeMyTrip — curated suggestions make choosing easy.</p>
+      <div id="hotelsGrid" class="grid mt-24"></div>
+    </div>
+  </section>
+  <!-- ABOUT -->
+  <section id="about" class="section soft">
+    <div class="container">
+      <h2 class="section-title reveal">About Exploricaa</h2>
+      <div class="about-grid mt-24 reveal">
+        <div class="about-text">
+          <h3>Your travel concierge online</h3>
+          <p>
+            Exploricaa is built to inspire and convert browsing into real trips. We highlight destinations with beautiful photography,
+            short compelling overviews, and direct links to hotels and transport partners. The dark, premium design keeps attention on visuals
+            and action buttons — perfect for capturing travel intent. Use this site to showcase destinations, guide users to book hotels on
+            MakeMyTrip, and send them to trusted transport portals (RedBus, IRCTC, MakeMyTrip flights). We design for speed, clarity, and conversions.
+          </p>
+          <ul class="benefits">
+            <li>Curated destination overviews to engage visitors</li>
+            <li>One-click navigation to hotels & transport</li>
+            <li>Fast, repeatable animations and responsive layout</li>
+          </ul>
+        </div>
+        <div class="about-visual">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format" alt="travel inspiration">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Exploricaa</div>
+      <div class="muted">Built with ♥ to help people travel smarter.</div>
+    </div>
+  </footer>
+  <!-- MODAL -->
+  <div id="exploreModal" class="modal">
+    <div class="modal-panel">
+      <button id="closeModal" class="modal-close" aria-label="Close">✕</button>
+      <img id="modalImg" class="modal-img" src="" alt="">
+      <h2 id="modalName" class="modal-title"></h2>
+      <p id="modalState" class="modal-sub"></p>
+      <p id="modalDesc" class="modal-desc"></p>
+      <div class="modal-actions">
+        <a id="mapsBtn" class="btn primary" href="#" target="_blank" rel="noopener">Open in Maps</a>
+        <a id="mmtHotelsBtn" class="btn" href="#" target="_blank" rel="noopener">View Hotels (MakeMyTrip)</a>
+      </div>
+      <div class="modal-travel mt-16">
+        <h4>Travel Options</h4>
+        <div class="travel-row">
+          <a id="modalCar" class="btn small" href="#" target="_blank" rel="noopener">Car / Bike</a>
+          <a id="modalTrain" class="btn small" href="#" target="_blank" rel="noopener">Train</a>
+          <a id="modalFlight" class="btn small" href="#" target="_blank" rel="noopener">Flight</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
