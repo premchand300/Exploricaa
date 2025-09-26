@@ -31,7 +31,7 @@ body{
 .nav-links a{color:var(--muted);margin-left:18px;font-weight:600}
 .nav-links a:hover{color:var(--accent)}
 /* HERO */
-.hero{height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 20px;position:relative;background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format');background-size:cover;background-position:center;background-attachment:fixed}
+.hero{height:80vh;display:flex;flex-direction: column; align-items:center;justify-content:center;text-align:center;padding:0 20px;border-radius: 0 0 20px 20px;position:relative;clip-path:ellipse(150% 90% at 50% 0%);background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format');background-size:cover;background-position:center;background-attachment:fixed}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(3,6,10,0.5), rgba(3,6,10,0.65))}
 .hero-inner{position:relative;z-index:2;max-width:900px;padding:40px;border-radius:12px}
 .hero-title{font-size:3rem;line-height:1;margin-bottom:10px;letter-spacing:-0.02em}
@@ -58,8 +58,40 @@ body{
 .about-text h3{margin-top:0}
 .about-text p{color:var(--muted);line-height:1.6}
 .about-visual img{width:100%;border-radius:10px;display:block}
+/* CONTACT FORM STYLES */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px;
+  background: var(--panel);
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  background: var(--bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+}
+.form-group input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.2);
+}
 /* FOOTER */
-.footer{padding:26px 0;border-top:1px solid rgba(255,255,255,0.03);margin-top:30px;display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
+.footer{padding:26px 10px;border-top:10px solid rgba(255,255,255,0.03);margin-top:30px;display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
 /* MODAL */
 .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:120;background:linear-gradient(rgba(2,6,12,0.6),rgba(2,6,12,0.8));backdrop-filter:blur(6px)}
 .modal-panel{width:min(820px,94%);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:18px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,0.6)}
@@ -106,4 +138,78 @@ img {
   transform: scale(1.08);
   background-color: #0077ff;
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+/* Success Popup */
+#successPopup .modal-panel {
+  max-width: 400px;
+  background: #111;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  animation: popupScale 0.4s ease;
+}
+@keyframes popupScale {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+/* Footer Styling */
+.footer {
+  padding: 40px 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 40px;
+  background: #0f1720;
+  color: var(--muted);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer h3, .footer h4 {
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.footer p {
+  margin: 4px 0;
+  line-height: 1.5;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer ul li {
+  margin: 6px 0;
+}
+
+.footer ul li a {
+  color: var(--muted);
+  transition: color 0.3s ease;
+}
+
+.footer ul li a:hover {
+  color: var(--accent);
+}
+
+.social-links {
+  margin-top: 12px;
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--muted);
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--accent);
 }

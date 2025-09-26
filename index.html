@@ -21,18 +21,21 @@
         <a href="#transport">Transport</a>
         <a href="#hotels">Hotels</a>
         <a href="#about">About</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
-  <!-- HERO (parallax) -->
+
+  <!-- HERO -->
   <section id="hero" class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-inner">
       <h1 class="hero-title">Plan • Explore • Book</h1>
-      <p class="hero-sub">Handpicked Indian destinations, hotels, and travel options — elegantly presented so users can plan fast and travel smart.</p>
+      <p class="hero-sub">Handpicked Indian destinations, hotels, and travel options — elegantly presented so you can plan fast and travel smart.</p>
       <a href="#destinations" class="btn primary">Start Exploring</a>
     </div>
   </section>
+
   <!-- DESTINATIONS -->
   <section id="destinations" class="section">
     <div class="container">
@@ -41,6 +44,7 @@
       <div id="cardsGrid" class="grid mt-24"></div>
     </div>
   </section>
+
   <!-- TRANSPORT -->
   <section id="transport" class="section soft">
     <div class="container">
@@ -74,6 +78,7 @@
       </div>
     </div>
   </section>
+
   <!-- HOTELS -->
   <section id="hotels" class="section">
     <div class="container">
@@ -82,6 +87,7 @@
       <div id="hotelsGrid" class="grid mt-24"></div>
     </div>
   </section>
+
   <!-- ABOUT -->
   <section id="about" class="section soft">
     <div class="container">
@@ -92,8 +98,7 @@
           <p>
             Exploricaa is built to inspire and convert browsing into real trips. We highlight destinations with beautiful photography,
             short compelling overviews, and direct links to hotels and transport partners. The dark, premium design keeps attention on visuals
-            and action buttons — perfect for capturing travel intent. Use this site to showcase destinations, guide users to book hotels on
-            MakeMyTrip, and send them to trusted transport portals (RedBus, IRCTC, MakeMyTrip flights). We design for speed, clarity, and conversions.
+            and action buttons — perfect for capturing travel intent.
           </p>
           <ul class="benefits">
             <li>Curated destination overviews to engage visitors</li>
@@ -107,14 +112,75 @@
       </div>
     </div>
   </section>
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>© <span id="year"></span> Exploricaa</div>
-      <div class="muted">Built with ♥ to help people travel smarter.</div>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section soft">
+    <div class="container">
+      <h2 class="section-title reveal">Get in Touch</h2>
+      <p class="section-sub reveal">
+        Leave your details and we'll send you travel deals and updates.
+      </p>
+      <form class="contact-form mt-24 reveal" action="save.php" method="POST">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required 
+           pattern="[A-Za-z\s]+" 
+           title="Enter a valid name (letters only)" />
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required
+           pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$" 
+           title="Enter a valid email address (example@domain.com)" />
+  </div>
+  <div class="form-group">
+    <label for="mobile">Mobile Number</label>
+    <input type="tel" id="mobile" name="mobile" required 
+           pattern="[6-9][0-9]{9}" 
+           maxlength="10"
+           title="Enter a valid 10-digit mobile number starting with 6, 7, 8, or 9" />
+  </div>
+  <button type="submit" class="btn primary">Submit</button>
+</form>
     </div>
-  </footer>
-  <!-- MODAL -->
+  </section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-left">
+      <h3>Exploricaa</h3>
+      <p class="muted">Your travel concierge online — helping you explore India smarter with curated destinations, transport, and hotels.</p>
+      <p class="muted">© <span id="year"></span> Exploricaa. All rights reserved.</p>
+    </div>
+    
+    <div class="footer-center">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#transport">Transport</a></li>
+        <li><a href="#hotels">Hotels</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-right">
+      <h4>Contact Us</h4>
+      <p class="muted">📍 Hyderabad, India</p>
+      <p class="muted">📧 support@exploricaa.com</p>
+      <p class="muted">📞 +91 98765 43210</p>
+      <div class="social-links">
+        <a href="#" target="_blank">🌐</a>
+        <a href="#" target="_blank">🐦</a>
+        <a href="#" target="_blank">📘</a>
+        <a href="#" target="_blank">📸</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- DESTINATION MODAL -->
   <div id="exploreModal" class="modal">
     <div class="modal-panel">
       <button id="closeModal" class="modal-close" aria-label="Close">✕</button>
@@ -136,6 +202,21 @@
       </div>
     </div>
   </div>
+
+  <!-- SUCCESS POPUP -->
+  <div id="successPopup" class="modal">
+    <div class="modal-panel" style="text-align:center; padding:40px;">
+      <span style="font-size:60px; color:limegreen;">✔</span>
+      <h2>Details Submitted Successfully!</h2>
+      <p>Thank you for contacting us. We'll get back to you soon.</p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init("YOUR_PUBLIC_KEY"); <!-- Replace with EmailJS Public Key -->
+  </script>
   <script src="script.js"></script>
 </body>
 </html>

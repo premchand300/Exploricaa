@@ -1,4 +1,3 @@
- 
 // Data: destinations (with images)
 const DESTINATIONS = [
   { id: 'araku', name: 'Araku Valley', state: 'Andhra Pradesh', desc: 'Coffee terraces, waterfalls, tribal culture and serene viewpoints — a green escape.', img: 'images/araku.png', hotelImg: 'hotels/araku.png'},
@@ -109,3 +108,42 @@ function setupReveal() {
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 }
 setupReveal();
+
+// Contact form handling
+const contactForm = document.querySelector(".contact-form");
+const successPopup = document.getElementById("successPopup");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(contactForm);
+    
+    // Save to server via PHP
+    fetch("save.php", {
+        method: "POST",
+        body: formData
+      })
+      .then(res => res.text())
+      .then(() => {
+        // ✅ Always show success popup after save.php works
+        successPopup.style.display = "flex";
+        
+        // Reset form fields
+        contactForm.reset();
+        
+        // Auto hide popup after 3 seconds
+        setTimeout(() => {
+          successPopup.style.display = "none";
+        }, 3000);
+        
+        // Try sending email in the background
+        emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", contactForm)
+          .catch(err => console.error("EmailJS error:", err));
+      })
+      .catch(err => {
+        alert("Something went wrong while saving details. Please try again.");
+        console.error("Saving failed:", err);
+      });
+  });
+}
